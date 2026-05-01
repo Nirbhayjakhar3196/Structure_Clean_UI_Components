@@ -24,16 +24,13 @@
         {
           id: Date.now(),
           title: newTask,
-          {/* ===== FILTER + SEARCH ===== */}
-          <TaskFilterBar
-            filter={filter}
-            setFilter={setFilter}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-      .filter((t) =>
-        t.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+          completed: false,
+          priority: "medium",
+          tag: "general",
+          createdAt: new Date().toISOString(),
+        },
+      ]);
+      setNewTask("");
 
     const completedCount = taskList.filter((t) => t.completed).length;
     const totalCount = taskList.length;
